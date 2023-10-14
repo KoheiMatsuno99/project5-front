@@ -50,6 +50,10 @@ class Player{
         }
         return score
     }
+
+    public setStatus(status: string): void{
+        this.status = status
+    }
 }
 
 class Card{
