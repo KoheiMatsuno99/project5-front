@@ -33,7 +33,7 @@ class Player{
     public calcScore(): number{
         let score = 0
         let isContainsA = false
-        for(let card of this.hand){
+        for(const card of this.hand){
             const rank = card.getRank()
             if(rank === "J" || rank === "Q" || rank === "K"){
                 score += 10
@@ -78,12 +78,7 @@ class Table{
     constructor(players: Player[]){
         this.players = players
         this.deck = this.shuffleDeck(this.createDeck())
-
-        for (let player of this.players){
-            for(let i = 0; i < 2; i++){
-                this.dealCard(player)
-            }
-        }
+        this.startRound()
     }
 
     public createDeck(): Card[]{
@@ -91,12 +86,20 @@ class Table{
         const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                        "J", "Q", "K"]
         const deck: Card[] = []
-        for(let suit of suits){
-            for(let rank of ranks){
+        for(const suit of suits){
+            for(const rank of ranks){
                 deck.push(new Card(suit, rank))
             }
         }
         return deck
+    }
+
+    private startRound(): void{
+        for (const player of this.players){
+            for(let i = 0; i < 2; i++){
+                this.dealCard(player)
+            }
+        }
     }
 
     private shuffleDeck(deck: Card[]): Card[]{
