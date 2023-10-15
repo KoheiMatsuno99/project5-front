@@ -28,3 +28,36 @@
     margin-left: 3rem;
     margin-right: 3rem;
 }
+
+.mx-8{
+    margin-left: 8rem;
+    margin-right: 8rem;
+}
+
+.card-size{
+    width: 120px;
+    height: 120px;
+}
+
+.card-bg{
+    background-color:white;
+}
+
+.full-screen{
+    min-height:100vh;
+    min-width: 100vw;
+    background-position: center;
+    background-size: cover;
+}
+
+.d-none{
+    display: none;
+}
+
+.d-block{
+    display: block;
+}
+
+.text-black{
+    color: black;
+}
