@@ -1,0 +1,30 @@
+.justify-content-center {
+    justify-content: center;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.board-bg{
+    background-color: darkgreen;
+}
+
+.flip-y{
+    transform: scaleY(-1);
+}
+
+.mx-1{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.mx-2{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.mx-3{
+    margin-left: 3rem;
+    margin-right: 3rem;
+}

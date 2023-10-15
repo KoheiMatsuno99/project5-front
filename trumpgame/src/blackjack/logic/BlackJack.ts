@@ -1,8 +1,8 @@
-class Player {
+export class Player {
   private name: string;
   private type: string; // "player" or "dealer" or "cpu"
   private money: number = 100;
-  private hand: Card[] = [];
+  private hand: BlackJackCard[] = [];
   private status: string = "playing"; // "playing" or "bust" or "stand"
   private result?: string; // "win" or "lose" or "draw" ディーラーの場合はundefined
   private bet: number = 0;
@@ -45,7 +45,7 @@ class Player {
     return this.money;
   }
 
-  public getHand(): Card[] {
+  public getHand(): BlackJackCard[] {
     return this.hand;
   }
 
@@ -79,7 +79,7 @@ class Player {
   }
 }
 
-class Card {
+export class BlackJackCard {
   private suit: string;
   private rank: string;
 
@@ -97,9 +97,9 @@ class Card {
   }
 }
 
-class Table {
+export class Table {
   private players: Player[]; // players[0]はディーラー
-  private deck: Card[];
+  private deck: BlackJackCard[];
   private winner?: Player;
   private round: number = 0;
 
@@ -109,8 +109,8 @@ class Table {
     this.startRound();
   }
 
-  public createDeck(): Card[] {
-    const suits = ["♠", "♥", " ♦", "♣"];
+  public createDeck(): BlackJackCard[] {
+    const suits = ["spade", "heart", "diamond", "clover"];
     const ranks = [
       "A",
       "2",
@@ -126,10 +126,10 @@ class Table {
       "Q",
       "K",
     ];
-    const deck: Card[] = [];
+    const deck: BlackJackCard[] = [];
     for (const suit of suits) {
       for (const rank of ranks) {
-        deck.push(new Card(suit, rank));
+        deck.push(new BlackJackCard(suit, rank));
       }
     }
     return deck;
@@ -145,7 +145,7 @@ class Table {
     }
   }
 
-  private shuffleDeck(deck: Card[]): Card[] {
+  private shuffleDeck(deck: BlackJackCard[]): BlackJackCard[] {
     for (let i = deck.length - 1; i > 0; i--) {
       const r = Math.floor(Math.random() * (i + 1));
       const tmp = deck[i];
@@ -204,7 +204,7 @@ class Table {
     return this.players;
   }
 
-  public getDeck(): Card[] {
+  public getDeck(): BlackJackCard[] {
     return this.deck;
   }
 
