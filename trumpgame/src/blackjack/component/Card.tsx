@@ -7,10 +7,10 @@ type Props = {
 
 export const Card = ({ card }: Props) => {
   return (
-    <div>
-      <img src={`/images/${card.getSuit()}.png`} />
+    <div className="card-bg mx-1">
+      <img src={`/images/${card.getSuit()}.png`}  className="card-size"/>
       <div className="d-flex justify-content-center">
-        {card.getRank()}
+        <span className="card-rank text-black">{card.getRank()}</span>
       </div>
     </div>
   );

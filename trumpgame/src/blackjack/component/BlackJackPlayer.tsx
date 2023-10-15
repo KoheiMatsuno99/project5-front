@@ -15,12 +15,13 @@ export const BlackJackPlayer = ({
     <div className={_isFliped}>
       <div>
         {player.getName()}
-        {player.getType()}
-        {player.getHand().map((card, index) => {
-          return <Card card={card} key={index}/>;
-        })}
-        {player.calcScore()}
-        {player.getMoney()}
+        <div className="d-flex justify-content-center">
+          {player.getHand().map((card, index) => {
+            return <Card card={card} key={index}/>;
+          })}
+        </div>
+        <p>score: {player.calcScore()}</p>
+        <p>money: {player.getMoney()}</p>
       </div>
     </div>
   );

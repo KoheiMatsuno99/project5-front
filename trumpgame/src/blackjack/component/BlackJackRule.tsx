@@ -6,7 +6,8 @@ export const BlackJackRule = () => {
     const players = [
         new Player("dealer", "dealer"),
         new Player("player1", "player"),
-        new Player("player2", "player"),
+        new Player("player2", "cpu"),
+        new Player("player3", "cpu"),
     ]
     const table = new Table(players);
     
@@ -18,7 +19,6 @@ export const BlackJackRule = () => {
 
     return (
         <div>
-            <h1>BlackJack</h1>
             {!isStarted && <button onClick={handleStart}>start</button>}
             {isStarted && <BlackJackBoard table={table} />}
         </div>
