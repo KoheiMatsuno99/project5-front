@@ -9,9 +9,11 @@ export const BlackJackBoard = ({table}: Props) => {
   return (
     <div className="board-bg full-screen">
       {/*dealer area*/}
-      <BlackJackPlayer player={table.getPlayers()[0]}></BlackJackPlayer>
+      <div>
+        <BlackJackPlayer player={table.getPlayers()[0]}></BlackJackPlayer>
+      </div>
       {/*players area*/}
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center mt-18">
         {table.getPlayers().slice(1).map((player, index) => {
           return <div className="mx-8" key={index}><BlackJackPlayer player={player}></BlackJackPlayer></div>;
         })}

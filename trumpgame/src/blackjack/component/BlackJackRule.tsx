@@ -18,9 +18,9 @@ export const BlackJackRule = () => {
     }
 
     return (
-        <div>
+        <>
             {!isStarted && <button onClick={handleStart}>start</button>}
             {isStarted && <BlackJackBoard table={table} />}
-        </div>
+        </>
     );
 }
