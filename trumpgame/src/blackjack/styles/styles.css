@@ -71,10 +71,10 @@
 }
 
 .action-btn{
-    width: 65px;
-    height: 40px;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    width: 30%;
+    height: auto;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
     text-align: center;
     font-size: 11px;
 }
