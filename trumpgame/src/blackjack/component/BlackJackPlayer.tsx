@@ -22,6 +22,11 @@ export const BlackJackPlayer = ({
         </div>
         <p>score: {player.calcScore()}</p>
         <p>money: {player.getMoney()}</p>
+        {player.getType() === "player" && <div>
+          <button className="action-btn">hit</button>
+          <button className="action-btn">stand</button>
+          <button className="action-btn">double</button>
+          </div>}
       </div>
     </div>
   );

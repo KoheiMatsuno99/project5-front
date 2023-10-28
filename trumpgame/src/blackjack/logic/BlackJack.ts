@@ -159,6 +159,24 @@ export class Table {
     player.getHand().push(this.deck.pop()!);
   }
 
+  public hit(player: Player): void {
+    this.dealCard(player);
+    if (player.calcScore() >= 22) {
+      player.setStatus("bust");
+    }
+  }
+
+  public stand(player: Player): void {
+    if (player.getStatus() === "bust") return
+    player.setStatus("stand");
+  }
+
+  public double(player: Player): void {
+    if (player.getHand().length !== 2) return
+    player.setBet(player.getBet() * 2);
+    this.hit(player);
+  }
+
   public judgeResult(): void {
     const dealerScore = this.players[0].calcScore();
     for (let i = 1; i < this.players.length; i++) {

@@ -69,3 +69,12 @@
 .text-black{
     color: black;
 }
+
+.action-btn{
+    width: 65px;
+    height: 40px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    text-align: center;
+    font-size: 11px;
+}
