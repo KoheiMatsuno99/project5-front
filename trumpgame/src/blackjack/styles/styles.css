@@ -34,9 +34,17 @@
     margin-right: 8rem;
 }
 
+.mt-18{
+    margin-top: 18rem;
+}
+
+.mt-3{
+    margin-top: 3rem;
+}
+
 .card-size{
-    width: 120px;
-    height: 120px;
+    width: 75px;
+    height: 75px;
 }
 
 .card-bg{
@@ -44,8 +52,8 @@
 }
 
 .full-screen{
-    min-height:100vh;
     min-width: 100vw;
+    height: 100vh;
     background-position: center;
     background-size: cover;
 }
