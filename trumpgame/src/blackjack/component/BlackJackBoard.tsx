@@ -13,9 +13,9 @@ export const BlackJackBoard = ({table}: Props) => {
         <BlackJackPlayer player={table.getPlayers()[0]} table={table}></BlackJackPlayer>
       </div>
       {/*players area*/}
-      <div className="d-flex justify-content-center mt-18">
+      <div className="d-flex justify-content-space-around">
         {table.getPlayers().slice(1).map((player, index) => {
-          return <div className="mx-8" key={index}><BlackJackPlayer player={player} table={table}></BlackJackPlayer></div>;
+          return <div className="player" key={index}><BlackJackPlayer player={player} table={table}></BlackJackPlayer></div>;
         })}
       </div>
     </div>

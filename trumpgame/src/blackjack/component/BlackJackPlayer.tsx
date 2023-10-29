@@ -17,16 +17,19 @@ export const BlackJackPlayer = ({
   const [hand, setHand] = useState(player.getHand())
   const [score, setScore] = useState(player.calcScore())
   const [money, setMoney] = useState(player.getMoney())
+  const [status, setStatus] = useState(player.getStatus())
 
 
   const handleHit = () => {
     table.hit(player);
     setHand(player.getHand())
     setScore(player.calcScore())
+    setStatus(player.getStatus())
   }
 
   const handleStand = () => {
     table.stand(player);
+    setStatus(player.getStatus())
   }
 
   const handleDouble = () => {
@@ -34,6 +37,7 @@ export const BlackJackPlayer = ({
     setHand(player.getHand())
     setScore(player.calcScore())
     setMoney(player.getMoney())
+    setStatus(player.getStatus())
   }
 
   return (
@@ -47,7 +51,8 @@ export const BlackJackPlayer = ({
         </div>
         <p>score: {score}</p>
         <p>money: {money}</p>
-        {player.getType() === "player" && <div>
+        <p>{status}</p>
+        {player.getType() !== "dealer" && <div>
           <button className="action-btn" onClick={handleHit}>hit</button>
           <button className="action-btn" onClick={handleStand}>stand</button>
           <button className="action-btn" onClick={handleDouble}>double</button>
