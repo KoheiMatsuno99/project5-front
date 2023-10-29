@@ -160,6 +160,7 @@ export class Table {
   }
 
   public hit(player: Player): void {
+    if (player.getStatus() === "bust") return
     this.dealCard(player);
     if (player.calcScore() >= 22) {
       player.setStatus("bust");
