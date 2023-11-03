@@ -9,7 +9,12 @@ type Props = {
   onAction: () => void;
 };
 
-export const BlackJackPlayer = ({ player, isFliped, table }: Props) => {
+export const BlackJackPlayer = ({
+  player,
+  isFliped,
+  table,
+  onAction,
+}: Props) => {
   const _isFliped = isFliped ? "flip-y" : "";
   const [hand, setHand] = useState(player.getHand());
   const [score, setScore] = useState(player.calcScore());
@@ -18,18 +23,23 @@ export const BlackJackPlayer = ({ player, isFliped, table }: Props) => {
 
   const handleHit = () => {
     table.hit(player);
-    setHand(player.getHand());
-    setScore(player.calcScore());
-    setStatus(player.getStatus());
+    updateStates();
+    onAction();
   };
 
   const handleStand = () => {
     table.stand(player);
     setStatus(player.getStatus());
+    onAction();
   };
 
   const handleDouble = () => {
     table.double(player);
+    updateStates();
+    onAction();
+  };
+
+  const updateStates = () => {
     setHand(player.getHand());
     setScore(player.calcScore());
     setMoney(player.getMoney());
@@ -48,7 +58,7 @@ export const BlackJackPlayer = ({ player, isFliped, table }: Props) => {
         <p>score: {score}</p>
         <p>money: {money}</p>
         <p>{status}</p>
-        {player.getType() !== "dealer" && (
+        {player.getType() === "player" && (
           <div>
             <button className="action-btn" onClick={handleHit}>
               hit
