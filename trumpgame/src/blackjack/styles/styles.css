@@ -1,68 +1,68 @@
 .justify-content-center {
-    justify-content: center;
+  justify-content: center;
 }
 
 .justify-content-space-around {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
 .d-flex {
-    display: flex;
+  display: flex;
 }
 
-.board-bg{
-    background-color: darkgreen;
+.board-bg {
+  background-color: darkgreen;
 }
 
-.flip-y{
-    transform: scaleY(-1);
+.flip-y {
+  transform: scaleY(-1);
 }
 
-.mx-1{
-    margin-left: 1rem;
-    margin-right: 1rem;
+.mx-1 {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
-.card-size{
-    width: 70px;
-    height: 70px;
+.card-size {
+  width: 70px;
+  height: 70px;
 }
 
-.card-bg{
-    background-color:white;
+.card-bg {
+  background-color: white;
 }
 
-.full-screen{
-    min-width: 100vw;
-    height: 100vh;
-    background-position: center;
-    background-size: cover;
+.full-screen {
+  min-width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
 }
 
-.d-none{
-    display: none;
+.d-none {
+  display: none;
 }
 
-.d-block{
-    display: block;
+.d-block {
+  display: block;
 }
 
-.text-black{
-    color: black;
+.text-black {
+  color: black;
 }
 
-.action-btn{
-    width: 30%;
-    height: auto;
-    margin-left: 0.1rem;
-    margin-right: 0.1rem;
-    text-align: center;
-    font-size: 11px;
+.action-btn {
+  width: 30%;
+  height: auto;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+  text-align: center;
+  font-size: 11px;
 }
 
-.player{
-    width: 30%;
-    margin-left: 3rem;
-    margin-right: 3rem;
-    margin-top: 13rem;
+.player {
+  width: 30%;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 13rem;
 }
