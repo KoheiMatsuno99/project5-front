@@ -102,7 +102,7 @@ export class Table {
   private deck: BlackJackCard[];
   private winner?: Player;
   private round: number = 0;
-  private turn: number = 0;
+  private turn: number = 1;
 
   constructor(players: Player[]) {
     this.players = players;
@@ -166,12 +166,14 @@ export class Table {
     if (player.calcScore() >= 22) {
       player.setStatus("bust");
     }
+    console.log(player.calcScore(), player.getStatus());
     this.turn = (this.turn + 1) % this.players.length;
   }
 
   public stand(player: Player): void {
     if (player.getStatus() !== "playing") return;
     player.setStatus("stand");
+    console.log(player.calcScore(), player.getStatus());
     this.turn = (this.turn + 1) % this.players.length;
   }
 
@@ -185,8 +187,10 @@ export class Table {
     if (player.getType() === "player") return;
     if (player.getStatus() !== "playing") return;
     if (player.calcScore() >= 17) {
+      console.log("stand");
       this.stand(player);
     } else {
+      console.log("hit");
       this.hit(player);
     }
   }
