@@ -1,11 +1,18 @@
 import { Card } from "./Card";
-import { Player, Table } from "../logic/BlackJack";
-import { useState } from "react";
+import { BlackJackCard, Player, Table } from "../logic/BlackJack";
+
+type PlayerStates = {
+  hand: BlackJackCard[];
+  score: number;
+  money: number;
+  status: string;
+};
 
 type Props = {
   player: Player;
   isFliped?: true;
   table: Table;
+  playerStates: PlayerStates;
   onAction: () => void;
 };
 
@@ -13,37 +20,26 @@ export const BlackJackPlayer = ({
   player,
   isFliped,
   table,
+  playerStates,
   onAction,
 }: Props) => {
   const _isFliped = isFliped ? "flip-y" : "";
-  const [hand, setHand] = useState(player.getHand());
-  const [score, setScore] = useState(player.calcScore());
-  const [money, setMoney] = useState(player.getMoney());
-  const [status, setStatus] = useState(player.getStatus());
+  const currentTurn = table.getTurn();
+  const isClickDisabled = player !== table.getPlayers()[currentTurn];
 
   const handleHit = () => {
     table.hit(player);
-    updateStates();
     onAction();
   };
 
   const handleStand = () => {
     table.stand(player);
-    setStatus(player.getStatus());
     onAction();
   };
 
   const handleDouble = () => {
     table.double(player);
-    updateStates();
     onAction();
-  };
-
-  const updateStates = () => {
-    setHand(player.getHand());
-    setScore(player.calcScore());
-    setMoney(player.getMoney());
-    setStatus(player.getStatus());
   };
 
   return (
@@ -51,22 +47,34 @@ export const BlackJackPlayer = ({
       <div>
         {player.getName()}
         <div className="d-flex justify-content-center">
-          {hand.map((card, index) => {
+          {playerStates.hand.map((card, index) => {
             return <Card card={card} key={index} />;
           })}
         </div>
-        <p>score: {score}</p>
-        <p>money: {money}</p>
-        <p>{status}</p>
+        <p>score: {playerStates.score}</p>
+        <p>money: {playerStates.money}</p>
+        <p>{playerStates.status}</p>
         {player.getType() === "player" && (
           <div>
-            <button className="action-btn" onClick={handleHit}>
+            <button
+              className="action-btn"
+              onClick={handleHit}
+              disabled={isClickDisabled}
+            >
               hit
             </button>
-            <button className="action-btn" onClick={handleStand}>
+            <button
+              className="action-btn"
+              onClick={handleStand}
+              disabled={isClickDisabled}
+            >
               stand
             </button>
-            <button className="action-btn" onClick={handleDouble}>
+            <button
+              className="action-btn"
+              onClick={handleDouble}
+              disabled={isClickDisabled}
+            >
               double
             </button>
           </div>
